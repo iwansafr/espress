@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -17,6 +18,10 @@ class AuthController extends Controller
     public function check_login(Request $request)
     {
         $request->validate($this->validate);
-        // return view('auth.login');
+        if(Auth::attempt(['name'=>$request->email,'password'=>$request->password],$request->remember)){
+            return redirect('dashboard');
+        }else{
+            return back()->with(['message'=>'Email dan Sandi tidak sesuai']);
+        }
     }
 }
