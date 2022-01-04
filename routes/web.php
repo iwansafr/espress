@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContentCategoryController;
+use App\Models\ContentCategory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,5 +26,12 @@ Route::post('/login',[AuthController::class, 'check_login']);
 Route::prefix('/dashboard')->middleware('auth')->group(function(){
     Route::get('/',function(){
         return view('dashboard.index');
+    });
+
+    Route::prefix('/content')->middleware('auth')->group(function(){
+        Route::get('category', function(){
+            return view('dashboard.content.category');
+        });
+        Route::post('category', [ContentCategoryController::class, 'save']);
     });
 });
