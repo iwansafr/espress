@@ -18,7 +18,7 @@ class AuthController extends Controller
     public function check_login(Request $request)
     {
         $request->validate($this->validate);
-        if(Auth::attempt(['name'=>$request->email,'password'=>$request->password],$request->remember)){
+        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password],$request->remember)){
             return redirect('dashboard');
         }else{
             return back()->with(['message'=>'Email dan Sandi tidak sesuai']);

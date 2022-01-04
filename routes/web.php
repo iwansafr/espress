@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login',[AuthController::class, 'login']);
+Route::get('/login',[AuthController::class, 'login'])->name('login');
 
 Route::post('/login',[AuthController::class, 'check_login']);
+Route::prefix('/dashboard')->middleware('auth')->group(function(){
+    Route::get('/',function(){
+        return view('dashboard.index');
+    });
+});
