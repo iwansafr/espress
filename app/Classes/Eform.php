@@ -2,14 +2,14 @@
 
 namespace App\Classes;
 
-use Faker\Provider\Image;
+use Intervention\Image\ImageManager;
 
 class Eform{
   public function uploadImage($image_object, $dir = 'public')
   {
     if (!empty($image_object)) {
       $photo = $image_object->store('public/images/'.$dir.'');
-      $manager = new Image();
+      $manager = new ImageManager();
       $image_name = str_replace('public/images/'.$dir.'/', '', $photo);
       $image = $manager->make('storage/images/'.$dir.'/' . $image_name);
       $image->fit(300, 200);
