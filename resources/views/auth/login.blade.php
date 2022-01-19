@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
+  @livewireStyles
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -23,51 +24,7 @@
         <a href=""><img src="/logo.png" class="img img-fluid" alt=""></a>
       </div>
       {{-- <p class="login-box-msg">Silahkan Login untuk mengakses Fitur</p> --}}
-      @if (session('message'))
-        <div class="alert alert-danger">
-          {{ session('message') }}
-        </div>
-      @endif
-      <form action="" method="post">
-        @csrf
-        <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" value="{{ old('email') }}" autofocus>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-          <div class="invalid-feedback">
-            @error('email') {{$message}} @enderror
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" value="{{ old('password') }}">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-          <div class="invalid-feedback">
-            @error('password') {{$message}} @enderror
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember" name="remember">
-              <label for="remember">
-                Ingat Saya
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
+      @livewire('auth.login')
 
       {{-- <div class="social-auth-links text-center mb-3">
         <p>- OR -</p>
@@ -98,5 +55,6 @@
 <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/assets/dist/js/adminlte.min.js"></script>
+@livewireScripts
 </body>
 </html>

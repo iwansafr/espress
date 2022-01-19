@@ -1,0 +1,10 @@
+@extends('dashboard')
+@push('css')
+    @livewireStyles
+@endpush
+@section('content')
+    @livewire($view)
+@endsection
+@push('js')
+    @livewireScripts
+@endpush
