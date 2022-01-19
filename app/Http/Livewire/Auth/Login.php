@@ -27,7 +27,7 @@ class Login extends Component
     public function login()
     {
         $this->validate();
-        if (Auth::attempt(['name' => $this->email, 'password' => $this->password], $this->remember)) {
+        if (Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
             $this->alert = ['alert' => 'success', 'msg' => 'Login Berhasil'];
             return redirect('/dashboard');
         } else {

@@ -1,5 +1,6 @@
 <?php
 
+use App\Classes\Form;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContentCategoryController;
 use App\Models\ContentCategory;
@@ -16,13 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+$form = new Form();
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login',[AuthController::class, 'login'])->name('login');
 
-Route::post('/login',[AuthController::class, 'check_login']);
+Route::get('/login',function(){
+    return view('auth.login');
+})->middleware('guest')->name('login');
+
 Route::prefix('/dashboard')->middleware('auth')->group(function(){
     Route::get('/',function(){
         return view('dashboard.index');
