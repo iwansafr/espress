@@ -20,7 +20,7 @@
   <div class="card">
     <div class="card-body login-card-body">
       <div class="login-logo">
-        <a href="/assets/index2.html"><b>{{ env('APP_NAME') }}</b></a>
+        <a href=""><img src="/logo.png" class="img img-fluid" alt=""></a>
       </div>
       {{-- <p class="login-box-msg">Silahkan Login untuk mengakses Fitur</p> --}}
       @if (session('message'))
