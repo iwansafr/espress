@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 $form = new Form();
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index');
 });
 
 
@@ -39,4 +39,8 @@ Route::prefix('/dashboard')->middleware('auth')->group(function(){
         });
         Route::post('category', [ContentCategoryController::class, 'save']);
     });
+});
+
+Route::get('/home',function(){
+    return view('home.index');
 });
