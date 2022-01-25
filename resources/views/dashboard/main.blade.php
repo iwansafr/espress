@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="/assets/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="/assets/plugins/summernote/summernote-bs4.min.css">
+  @livewireStyles
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -249,5 +250,6 @@
 <script src="/assets/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/assets/dist/js/pages/dashboard.js"></script>
+@livewireScripts
 </body>
 </html>
