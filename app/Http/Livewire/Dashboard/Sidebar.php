@@ -20,7 +20,7 @@ class Sidebar extends Component
                 [
                     'title' => 'Dashboard',
                     'icon' => 'fas fa-tachometer-alt',
-                    'link' => url('/')
+                    'link' => url('/dashboard')
                 ],
             ],
             'CONTENT' => [
@@ -46,7 +46,7 @@ class Sidebar extends Component
                 [
                     'title' => 'User Role',
                     'icon' => 'fas fa-user-graduate',
-                    'link' => url('/dashboard/role'),
+                    'link' => url('/dashboard/user/role'),
                 ],
                 [
                     'title' => 'User',

@@ -17,8 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-$form = new Form();
-
 Route::get('/', function () {
     return view('home.index');
 });
@@ -37,7 +35,14 @@ Route::prefix('/dashboard')->middleware('auth')->group(function(){
         Route::get('category', function(){
             return view('dashboard.content.category');
         });
-        Route::post('category', [ContentCategoryController::class, 'save']);
+        // Route::post('category', [ContentCategoryController::class, 'save']);
+    });
+
+    Route::prefix('/user')->middleware('auth')->group(function(){
+        Route::get('role', function(){
+            $form = new Form();
+            return $form->liveview('user.role');
+        });
     });
 });
 
