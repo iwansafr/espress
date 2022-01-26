@@ -1,7 +1,7 @@
 <div>
-    @if (session('alert'))
+    @if ($alert)
         <div class="alert alert-danger">
-            {{ session('alert') }}
+            {{ $alert['msg'] }}
         </div>
     @endif
     <form wire:submit.prevent="login">
